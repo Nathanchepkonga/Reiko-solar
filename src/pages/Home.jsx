@@ -13,7 +13,7 @@ const Home = () => {
           <img
             src={logo}
             alt="Reiko Solar Kenya Logo"
-            className="mx-auto w-24 h-24 mb-4"
+            className="mx-auto w-24 h-24 mb-4 animate-bounceSlow"
           />
           <h1 className="text-4xl font-extrabold mb-4 text-black">
             Welcome to Reiko Solar Kenya
