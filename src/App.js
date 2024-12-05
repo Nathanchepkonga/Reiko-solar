@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Consultation from './pages/Consultation';
 import Installation from './pages/Installation';
 import JoinTeam from './pages/JoinTeam';
+import About from './pages/About'; 
+
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
             <Route path="/consultation" element={<Consultation />} />
             <Route path="/installation" element={<Installation />} />
             <Route path="/join-team" element={<JoinTeam />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
         <Footer />
