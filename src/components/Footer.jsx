@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Contact Information */}
           <div className="text-center md:text-left space-y-2">
             <p className="text-white text-lg font-semibold">Reiko Solar Kenya</p>
-            <p>Call us: +254 712 345 678</p>
+            <p>Call us: +254 748 520 051</p>
             <p>Email: <a href="mailto:reikokenya@gmail.com" className="hover:text-green-400 transition">reikokenya@gmail.com</a></p>
           </div>
 
@@ -62,7 +62,7 @@ const Footer = () => {
               <FaTwitter />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/reikosolar"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-green-400 transition text-xl"
