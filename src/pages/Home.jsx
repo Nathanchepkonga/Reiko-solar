@@ -1,89 +1,122 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
-import consultationImg from '../assets/images/consultation.jpg';
-import installationImg from '../assets/images/installation.jpg';
+import consultationImage from '../assets/images/consultation.jpg';
+import installationImage from '../assets/images/installation.jpg';
+import heroImage from '../assets/images/solar-hero.jpg'; // Update with your hero section image
 
 const Home = () => {
   return (
-    <div className="bg-gray-50 text-center p-6">
+    <div className="home-page">
       {/* Hero Section */}
-      <header className="mb-12 bg-gradient-to-r from-green-400 to-blue-500 py-10">
-        <div className="container mx-auto">
-          <img
-            src={logo}
-            alt="Reiko Solar Kenya Logo"
-            className="mx-auto w-24 h-24 mb-4 animate-bounceSlow"
-          />
-          <h1 className="text-4xl font-extrabold mb-4 text-black">
-            Welcome to Reiko Solar Kenya
+      <div
+        className="relative h-screen bg-cover bg-center flex items-center justify-center text-white"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(${heroImage})`,
+        }}
+      >
+        <div className="text-center space-y-6" data-aos="fade-up">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            Empowering Kenya with Solar Solutions
           </h1>
-          <p className="text-gray-600 mb-4">
-            Your trusted partner for reliable and affordable solar energy solutions.
+          <p className="text-lg md:text-xl font-light max-w-xl mx-auto">
+            Reliable, affordable, and sustainable energy for homes and businesses.
           </p>
-        </div>
-      </header>
-
-      {/* Service Options */}
-      <main className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
-        {/* Consultation Services */}
-        <div className="service-item bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-          <img
-            src={consultationImg}
-            alt="Consultation Services"
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-6">
-            <h2 className="text-2xl font-bold text-green-700 mb-4">
-              Consultation Services
-            </h2>
-            <p className="text-gray-600 mb-4">
-              Get professional advice on solar systems tailored to your needs.
-            </p>
-            <Link to="/consultation">
-              <button className="bg-blue text-white py-2 px-4 rounded hover:opacity-80 inline-block">
-                Learn More
-              </button>
+          <div className="space-x-4">
+            <Link
+              to="/consultation"
+              className="bg-green-300 hover:bg-green-400 text-green-800 py-3 px-6 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+              >
+              Book a Consultation
             </Link>
           </div>
         </div>
+      </div>
 
-        {/* Installation Services */}
-        <div className="service-item bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-          <img
-            src={installationImg}
-            alt="Installation Services"
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-6">
-            <h2 className="text-2xl font-bold text-green-700 mb-4">
-              Installation Services
-            </h2>
-            <p className="text-gray-600 mb-4">
-              Professional installation of solar systems for your home or business.
-            </p>
-            <Link to="/installation">
-              <button className="bg-blue text-white py-2 px-4 rounded hover:opacity-80 inline-block">
-                Learn More
-              </button>
+      {/* Services Section */}
+      <div className="py-16 bg-gray-100">
+        <h2 className="text-3xl font-bold text-center text-green-600 mb-8" data-aos="fade-right">
+          Our Services
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Consultation",
+              image: consultationImage,
+              description: "Personalized advice tailored to your energy needs.",
+              link: "/consultation",
+            },
+            {
+              title: "Installation",
+              image: installationImage,
+              description: "Expert solar panel and battery installations.",
+              link: "/installation",
+            },
+          ].map((service, index) => (
+            <Link
+              key={index}
+              to={service.link}
+              className="service-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-40 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+              <p className="text-gray-600">{service.description}</p>
             </Link>
-          </div>
+          ))}
         </div>
-      </main>
+      </div>
 
-      {/* Footer CTA */}
-      <footer className="mt-12 bg-green-100 py-6">
-        <div className="container mx-auto">
-          <p className="text-gray-800 text-lg">
-            Join the renewable energy revolution with Reiko Solar Kenya.
-          </p>
-          <Link to="/about">
-            <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-8 rounded">
-              About Us
-            </button>
-          </Link>
+      {/* Testimonials Section */}
+      <div className="py-16 bg-green-50">
+        <h2 className="text-3xl font-bold text-center text-green-600 mb-8" data-aos="fade-left">
+          What Our Clients Say
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              name: "Nathan C.",
+              feedback: "Reiko Solar transformed our home. Highly recommend!",
+            },
+            {
+              name: "Dennis K.",
+              feedback: "Affordable and reliable solar solutions. Excellent service!",
+            },
+            {
+              name: "Festus Y.",
+              feedback: "The team was professional and the system works perfectly.",
+            },
+          ].map((testimonial, index) => (
+            <div
+              key={index}
+              className="testimonial-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <p className="text-gray-700 italic mb-4">"{testimonial.feedback}"</p>
+              <h4 className="text-green-600 font-bold">{testimonial.name}</h4>
+            </div>
+          ))}
         </div>
-      </footer>
+      </div>
+
+      {/* Call to Action Section */}
+      <div className="bg-green-600 py-12 text-center text-lg text-gray-700 mb-8">
+        <h3 className="text-3xl font-bold text-center text-green-600 mb-8" data-aos="fade-left">
+          Ready to Go Solar?
+        </h3>
+        <Link
+          to="/consultation"
+          className="bg-green-300 hover:bg-green-400 text-green-800 py-3 px-6 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+          data-aos="zoom-in"
+        >
+          Book a Consultation
+        </Link>
+      </div>
     </div>
   );
 };

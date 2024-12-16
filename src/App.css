@@ -1,10 +1,13 @@
+/* General App Styling */
 .App {
   text-align: center;
 }
 
+/* App Logo Styling */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  transition: transform 0.3s ease-in-out;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,6 +16,11 @@
   }
 }
 
+.App-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Header Section Styling */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,12 +30,29 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
+  padding: 0 20px;
 }
 
+.App-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Links Styling */
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
 }
 
+.App-link:hover {
+  color: #21a1f1;
+  text-decoration: underline;
+}
+
+/* Animations for App Logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

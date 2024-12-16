@@ -1,81 +1,113 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.png'; // Update path based on your actual logo location
+import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
+  // Scroll effect for changing navbar appearance
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-green text-white py-4 px-6 shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Logo Section */}
+    <nav
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-xl' : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between py-5 px-8">
+        {/* Logo */}
         <div className="flex items-center space-x-4">
-          <Link to="/" className="flex items-center group">
+          <Link to="/">
             <img
               src={logo}
               alt="Reiko Solar Logo"
-              className="h-10 w-auto transform group-hover:scale-110 transition-transform duration-300"
+              className="h-14 w-auto transition duration-300 transform hover:scale-105"
             />
-            <h1 className="text-xl font-bold group-hover:text-yellow-300 transition-colors duration-300">
-              Reiko Solar Kenya
-            </h1>
           </Link>
         </div>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6 text-lg">
-          <Link to="/" className="hover:text-yellow-300 transition-colors duration-300">
+        {/* Links for Desktop */}
+        <div className="hidden md:flex space-x-8 text-lg font-medium">
+          <Link
+            to="/"
+            className={`transition duration-300 ${
+              isScrolled ? 'text-gray-800 hover:text-green-600' : 'text-white hover:text-green-300'
+            }`}
+          >
             Home
           </Link>
-          <Link to="/consultation" className="hover:text-yellow-300 transition-colors duration-300">
+          <Link
+            to="/consultation"
+            className={`transition duration-300 ${
+              isScrolled ? 'text-gray-800 hover:text-green-600' : 'text-white hover:text-green-300'
+            }`}
+          >
             Consultation
           </Link>
-          <Link to="/installation" className="hover:text-yellow-300 transition-colors duration-300">
+          <Link
+            to="/installation"
+            className={`transition duration-300 ${
+              isScrolled ? 'text-gray-800 hover:text-green-600' : 'text-white hover:text-green-300'
+            }`}
+          >
             Installation
           </Link>
-          <Link to="/about" className="hover:text-yellow-300 transition-colors duration-300">
+          <Link
+            to="/about"
+            className={`transition duration-300 ${
+              isScrolled ? 'text-gray-800 hover:text-green-600' : 'text-white hover:text-green-300'
+            }`}
+          >
             About Us
           </Link>
         </div>
 
-        {/* Dropdown Button for Mobile */}
+        {/* Mobile Dropdown */}
         <div className="md:hidden relative">
           <button
-            className="bg-yellow-300 text-black py-2 px-4 rounded focus:outline-none"
-            onClick={toggleDropdown}
+            onClick={() => setDropdownOpen(!isDropdownOpen)}
+            className={`px-6 py-3 rounded-lg shadow-lg transition duration-300 ${
+              isScrolled
+                ? 'bg-green-600 text-white hover:bg-green-700'
+                : 'bg-white text-gray-800 hover:bg-gray-100'
+            }`}
           >
             Menu
           </button>
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-10">
+            <div className="absolute top-16 right-0 bg-white shadow-xl rounded-lg w-48 mt-2">
               <Link
                 to="/"
-                className="block px-4 py-2 hover:bg-gray-200 transition"
+                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
                 onClick={() => setDropdownOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/consultation"
-                className="block px-4 py-2 hover:bg-gray-200 transition"
+                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
                 onClick={() => setDropdownOpen(false)}
               >
                 Consultation
               </Link>
               <Link
                 to="/installation"
-                className="block px-4 py-2 hover:bg-gray-200 transition"
+                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
                 onClick={() => setDropdownOpen(false)}
               >
                 Installation
               </Link>
               <Link
                 to="/about"
-                className="block px-4 py-2 hover:bg-gray-200 transition"
+                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
                 onClick={() => setDropdownOpen(false)}
               >
                 About Us
