@@ -62,13 +62,15 @@ const Installation = () => {
         </ol>
       </div>
 
-      {/* Booking Section */}
+      {/* Consultation Form Section */}
       <div className="text-center">
         <a
-          href="/book-installation"
+          href="https://forms.gle/49m8oMvMnkUYqiCw7"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-green-300 hover:bg-green-400 text-green-800 py-3 px-6 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
         >
-          Book Installation
+          Fill Installation Form
         </a>
       </div>
     </div>

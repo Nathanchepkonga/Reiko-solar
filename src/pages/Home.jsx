@@ -25,7 +25,7 @@ const Home = () => {
             <Link
               to="/consultation"
               className="bg-green-300 hover:bg-green-400 text-green-800 py-3 px-6 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-              >
+            >
               Book a Consultation
             </Link>
           </div>
@@ -55,17 +55,22 @@ const Home = () => {
             <Link
               key={index}
               to={service.link}
-              className="service-card"
+              className="service-card group relative overflow-hidden rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-40 object-cover rounded-md mb-4"
+                className="w-full h-40 object-cover rounded-md group-hover:opacity-75 transition-opacity duration-300"
               />
-              <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-gray-600">{service.description}</p>
+              </div>
             </Link>
           ))}
         </div>
@@ -93,7 +98,7 @@ const Home = () => {
           ].map((testimonial, index) => (
             <div
               key={index}
-              className="testimonial-card"
+              className="testimonial-card p-6 bg-white rounded-md shadow-md hover:shadow-lg transform transition-transform duration-300 hover:scale-105"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
