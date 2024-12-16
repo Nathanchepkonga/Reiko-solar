@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Scroll effect for changing navbar appearance
@@ -70,50 +69,34 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Dropdown */}
-        <div className="md:hidden relative">
-          <button
-            onClick={() => setDropdownOpen(!isDropdownOpen)}
-            className={`px-6 py-3 rounded-lg shadow-lg transition duration-300 ${
-              isScrolled
-                ? 'bg-green-600 text-white hover:bg-green-700'
-                : 'bg-white text-gray-800 hover:bg-gray-100'
-            }`}
-          >
-            Menu
-          </button>
-          {isDropdownOpen && (
-            <div className="absolute top-16 right-0 bg-white shadow-xl rounded-lg w-48 mt-2">
-              <Link
-                to="/"
-                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
-                onClick={() => setDropdownOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                to="/consultation"
-                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
-                onClick={() => setDropdownOpen(false)}
-              >
-                Consultation
-              </Link>
-              <Link
-                to="/installation"
-                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
-                onClick={() => setDropdownOpen(false)}
-              >
-                Installation
-              </Link>
-              <Link
-                to="/about"
-                className="block px-6 py-3 text-gray-700 hover:bg-gray-100 rounded-lg"
-                onClick={() => setDropdownOpen(false)}
-              >
-                About Us
-              </Link>
-            </div>
-          )}
+        {/* Mobile Menu */}
+        <div className="md:hidden w-full absolute left-0 top-full bg-white shadow-md">
+          <div className="flex justify-around py-3 text-lg font-medium">
+            <Link
+              to="/"
+              className="text-gray-800 hover:text-green-600 transition duration-300"
+            >
+              Home
+            </Link>
+            <Link
+              to="/consultation"
+              className="text-gray-800 hover:text-green-600 transition duration-300"
+            >
+              Consultation
+            </Link>
+            <Link
+              to="/installation"
+              className="text-gray-800 hover:text-green-600 transition duration-300"
+            >
+              Installation
+            </Link>
+            <Link
+              to="/about"
+              className="text-gray-800 hover:text-green-600 transition duration-300"
+            >
+              About Us
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
