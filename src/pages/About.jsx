@@ -11,9 +11,12 @@ const About = () => {
         style={{ backgroundImage: `url(${aboutImage})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white text-center px-4">
+        <h1>
+
+        </h1>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center px-4">
             About Us
-          </h1>
+          </h2>
         </div>
       </div>
 
