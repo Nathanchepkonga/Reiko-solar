@@ -3,16 +3,16 @@ import joinTeamImage from "../assets/images/join-team.jpg"; // Import the image
 
 const JoinTeam = () => {
   return (
-    <div className="p-6 md:p-10 bg-gray-50">
-      {/* Header Section with Image */}
+    <div className="bg-gray-50">
+      {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center h-64 rounded-lg shadow-lg mb-8"
+        className="relative bg-cover bg-center w-full min-h-[300px] md:min-h-[400px]"
         style={{ backgroundImage: `url(${joinTeamImage})` }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white text-center px-4">
             Join Our Technician Team
-          </h2>
+          </h1>
         </div>
       </div>
 
