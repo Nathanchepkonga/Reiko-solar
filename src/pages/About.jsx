@@ -1,14 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
+import aboutImage from "../assets/images/about.jpg"; // Import the image
 
 const About = () => {
   return (
     <div className="p-6 md:p-10 bg-gradient-to-r from-green-200 via-blue-200 to-purple-300">
-      {/* Header Section */}
+      {/* Header Section with Image */}
+      <div
+        className="relative bg-cover bg-center h-64 rounded-lg shadow-lg mb-8"
+        style={{ backgroundImage: `url(${aboutImage})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center">
+            About Us
+          </h2>
+        </div>
+      </div>
+
+      {/* Introduction Section */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 shadow-lg p-2">
-        
-        </h2>
         <p className="text-lg text-gray-700">
           Reiko Solar Kenya is a leading provider of affordable and reliable solar
           energy solutions across Kenya. We bring clean, efficient, and sustainable energy
@@ -51,7 +61,7 @@ const About = () => {
         </ul>
       </div>
 
-      {/* Fun Section with Interactive Component */}
+      {/* Call-to-Action Section */}
       <div className="bg-gradient-to-r from-yellow-300 to-orange-400 p-6 md:p-10 rounded-lg shadow-xl mb-16">
         <h3 className="text-2xl font-semibold text-green-700 mb-4 text-center">Why Choose Us?</h3>
         <div className="text-center">
@@ -67,24 +77,6 @@ const About = () => {
               Explore our solutions
             </Link>
           </div>
-        </div>
-      </div>
-
-      {/* Animated Section for Engagement */}
-      <div className="text-center mb-16">
-        <h3 className="text-2xl font-semibold text-green-700 mb-4">
-          Join the Solar Revolution 🌞
-        </h3>
-        <p className="text-lg text-gray-700 mb-8">
-          Start your solar journey with us today and take a step towards energy independence.
-        </p>
-        <div className="space-x-4">
-          <Link
-            to="/installation"
-            className="bg-green-300 hover:bg-green-400 text-green-800 py-3 px-6 rounded-full text-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-          >
-            GET STARTED
-          </Link>
         </div>
       </div>
     </div>
