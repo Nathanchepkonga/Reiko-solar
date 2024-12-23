@@ -16,7 +16,7 @@ const Home = () => {
       >
         <div className="text-center space-y-6" data-aos="fade-up">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Empowering Kenya with Solar Solutions
+            Empowering Kenyans with Solar Solutions
           </h1>
           <p className="text-lg md:text-xl font-light max-w-xl mx-auto">
             Reliable, affordable, and sustainable energy for homes and businesses.
