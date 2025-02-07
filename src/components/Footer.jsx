@@ -54,7 +54,7 @@ const Footer = () => {
               <FaFacebookF />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/PVsolutionsKE?t=qa_ttgS54-Xoc7f1w4c-_A&s=08"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-green-400 transition text-xl"
