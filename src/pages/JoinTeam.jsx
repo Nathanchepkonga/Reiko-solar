@@ -4,6 +4,17 @@ import joinTeamImage from "../assets/images/join-team.jpg"; // Import the image
 const JoinTeam = () => {
   return (
     <div className="bg-gray-50">
+      {/* Google Tag Manager */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEMNX42LH6"></script>
+      <script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZEMNX42LH6');
+        `}
+      </script>
+
       {/* Hero Section */}
       <div
         className="relative bg-cover bg-center w-full min-h-[300px] md:min-h-[400px]"
