@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import consultationImage from '../assets/images/consultation.jpg';
 import installationImage from '../assets/images/installation.jpg';
-import heroImage from '../assets/images/solar-hero.jpg'; // Update with your hero section image
+import heroImage from '../assets/images/solar-hero.jpg';
 
 const Home = () => {
+  useEffect(() => {
+    // Load Google Analytics script dynamically
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZEMNX42LH6";
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-ZEMNX42LH6');
+    };
+  }, []);
+
   return (
     <div className="home-page">
       {/* Hero Section */}
